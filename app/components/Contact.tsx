@@ -17,7 +17,9 @@ export default function Contact() {
   }, []);
 
   // Handle Input Change
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -33,7 +35,7 @@ export default function Contact() {
     // Sending email
     emailjs
       .send(serviceID, templateID, formData, userID)
-      .then((response) => {
+      .then(() => {
         alert("Email sent successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });
       })
@@ -52,7 +54,7 @@ export default function Contact() {
         <form
           onSubmit={handleSubmit}
           data-aos="zoom-in"
-          className="bg-white p-10 flex flex-col justify-center items-start gap-4 rounded-xl aos-init aos-animate"
+          className="bg-white p-10 flex flex-col justify-center items-start gap-4 rounded-xl"
         >
           <h1 className="text-2xl text-black font-semibold ">
             Send us a message today
@@ -90,8 +92,8 @@ export default function Contact() {
 
           <textarea
             name="message"
-            cols="30"
-            rows="5"
+            cols={30}
+            rows={5}
             placeholder="Enter your message here..."
             className="w-full px-6 py-3 border-2 border-gray-200 rounded-xl text-black"
             value={formData.message}
@@ -111,14 +113,14 @@ export default function Contact() {
           <h1
             data-aos="zoom-in"
             data-aos-delay="200"
-            className="text-red-500 aos-init aos-animate"
+            className="text-red-500"
           >
             REACH US
           </h1>
           <h1
             data-aos="zoom-in"
             data-aos-delay="400"
-            className="text-black text-[40px] font-semibold leading-10 aos-init aos-animate"
+            className="text-black text-[40px] font-semibold leading-10"
           >
             Get in touch with us today and our team will assist you
           </h1>
@@ -126,7 +128,7 @@ export default function Contact() {
           <p
             data-aos="zoom-in"
             data-aos-delay="600"
-            className="text-xl text-gray-600 text-justify aos-init aos-animate"
+            className="text-xl text-gray-600 text-justify"
           >
             Our experts and developers would love to contribute their expertise
             and insights and help you today. Contact us to help you plan your
@@ -136,7 +138,7 @@ export default function Contact() {
           <button
             data-aos="zoom-in"
             data-aos-delay="800"
-            className="bg-red-600 text-md px-8 py-3 text-white font-semibold rounded-xl hover:bg-black cursor-pointer aos-init aos-animate "
+            className="bg-red-600 text-md px-8 py-3 text-white font-semibold rounded-xl hover:bg-black cursor-pointer"
           >
             CONTACT US
           </button>
